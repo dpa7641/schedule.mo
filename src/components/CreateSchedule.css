@@ -1,0 +1,17 @@
+.contenido {
+  margin: 15px;
+  padding: 25px;
+}
+.inputName {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+}
+.inputDescription {
+  margin: 10px;
+  padding: 10px;
+  width: 100%;
+}

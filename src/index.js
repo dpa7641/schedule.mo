@@ -1,20 +1,27 @@
+import "@ionic/core/css/core.css";
+import "@ionic/core/css/ionic.bundle.css";
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter as Router, Link, Route, Switch } from "react-router-dom";
+import { createStore, applyMiddleware } from "redux";
+import { Provider } from "react-redux";
+import appReducer from "./reducer/reducer";
 import "./index.css";
+import thunk from "redux-thunk";
+import logger from "redux-logger";
 import App from "./App";
-import About from "./About";
-import registerServiceWorker from "./registerServiceWorker";
+import * as serviceWorker from "./registerServiceWorker";
 
+const store = createStore(appReducer, applyMiddleware(logger, thunk));
+
+console.log("store", store.getState());
 ReactDOM.render(
-  <Router>
-    <div>
-      <Switch>
-        <Route exact path="/" component={App} />
-        <Route path="/About" component={About} />
-      </Switch>
-    </div>
-  </Router>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById("root")
 );
-registerServiceWorker();
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();

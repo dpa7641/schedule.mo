@@ -1,0 +1,22 @@
+h5 {
+  color: #00000075;
+}
+.cuerpo {
+  margin: 15px;
+  padding: 25px;
+}
+.inputForm {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.submit {
+  margin-top: 20px;
+}
+.registro {
+  margin-top: 20px;
+}

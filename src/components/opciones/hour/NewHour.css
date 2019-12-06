@@ -1,0 +1,12 @@
+.cuerpo {
+  margin: 15px;
+  padding: 25px;
+}
+.inputForm {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid black;
+  color: black;
+  padding: 10px;
+  margin: 10px;
+}
