@@ -1,27 +1,15 @@
 import React, { useState } from "react";
-import {
-  IonContent,
-  IonIcon,
-  IonHeader,
-  IonPage,
-  IonToolbar,
-  IonTitle,
-  IonButtons,
-  IonLabel,
-  IonButton,
-  IonAlert
-} from "@ionic/react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { latestCalendar } from "../reducer/actionCreators";
 import get from "lodash/fp/get";
 import "./CreateSchedule.css";
-import { arrowRoundBack } from "ionicons/icons";
+//import { arrowRoundBack } from "ionicons/icons";
 
 const CreateSchedule = ({ history }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [alert, setShowAlert] = useState(false);
+  //const [alert, setShowAlert] = useState(false);
   const dispatch = useDispatch();
   const user_id = useSelector(get("session.user_id"));
 
@@ -44,24 +32,25 @@ const CreateSchedule = ({ history }) => {
       dispatch(latestCalendar(data.id));
       history.push(`/horarios`);
     } else {
-      setShowAlert(true);
+      //setShowAlert(true);
     }
   };
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonButton onClick={() => history.goBack()}>
+    <div>
+      <div>
+        <div>
+          {/*<IonButtons slot="start">
+            <button onClick={() => history.goBack()}>
               <IonIcon icon={arrowRoundBack}></IonIcon>
-              <IonLabel>Atras</IonLabel>
-            </IonButton>
-          </IonButtons>
-          <IonTitle>Creación de Horario</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
+              <p>Atras</p>
+            </button>
+  </IonButtons>*/}
+          {/*anadir botones para regreso*/}
+          <p>Creación de Horario</p>
+        </div>
+      </div>
+      <div>
         <div className="contenido">
           <form
             onSubmit={e => {
@@ -69,7 +58,7 @@ const CreateSchedule = ({ history }) => {
               handleSubmit();
             }}
           >
-            <IonLabel>Inserte Nombre del nuevo Calendario:</IonLabel>
+            <p>Inserte Nombre del nuevo Calendario:</p>
             <input
               onChange={e => setName(e.target.value)}
               type="text"
@@ -78,7 +67,7 @@ const CreateSchedule = ({ history }) => {
               name="name"
               required
             />
-            <IonLabel>Descripcion (Opcional):</IonLabel>
+            <p>Descripcion (Opcional):</p>
             <textarea
               onChange={e => setDescription(e.target.value)}
               placeholder="Descripción..."
@@ -87,21 +76,21 @@ const CreateSchedule = ({ history }) => {
               cols={40}
               rows={10}
             />
-            <IonButton type="submit" expand="block" className="submit">
+            <button type="submit" className="submit">
               Aceptar
-            </IonButton>
-            <IonAlert
+            </button>
+            {/*<IonAlert
               isOpen={alert}
               onDidDismiss={() => setShowAlert(false)}
               header={"Advertencia"}
               subHeader={"Fallo en el guardado"}
               message={"caracteres en la descripcion exedidos"}
               buttons={["OK"]}
-            />
+            />*/}
           </form>
         </div>
-      </IonContent>
-    </IonPage>
+      </div>
+    </div>
   );
 };
 

@@ -1,20 +1,8 @@
 import React, { useState } from "react";
-import {
-  IonHeader,
-  IonToolbar,
-  IonPage,
-  IonTitle,
-  IonContent,
-  IonLabel,
-  IonButton,
-  IonButtons,
-  IonIcon,
-  IonAlert,
-  IonDatetime
-} from "@ionic/react";
+
 import { useSelector } from "react-redux";
 import get from "lodash/fp/get";
-import { arrowRoundBack } from "ionicons/icons";
+//import { arrowRoundBack } from "ionicons/icons";
 import Footer from "../../Footer";
 
 const NewHour = ({ history }) => {
@@ -46,19 +34,19 @@ const NewHour = ({ history }) => {
   };
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
+    <div>
+      <div>
+        {/*<IonToolbar>
           <IonButtons slot="start">
-            <IonButton onClick={() => history.goBack()}>
+            <button onClick={() => history.goBack()}>
               <IonIcon icon={arrowRoundBack}></IonIcon>
-              <IonLabel>Atras</IonLabel>
-            </IonButton>
+              <p>Atras</p>
+            </button>
           </IonButtons>
           <IonTitle>OpcionesHora</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
+        </IonToolbar>*/}
+      </div>
+      <div>
         <div className="cuerpo">
           <form
             onSubmit={e => {
@@ -66,34 +54,36 @@ const NewHour = ({ history }) => {
               handleSubmit();
             }}
           >
-            <IonLabel>Seleccione la Hora Inicial (HH:MM:SS):</IonLabel>
-            <IonDatetime
+            <p>Seleccione la Hora Inicial (HH:MM:SS):</p>
+            {/*<IonDatetime
               displayFormat="HH:mm:ss"
               value={ini}
               onIonChange={e => setIni(e.target.value)}
-            />
-            <IonLabel>Seleccione la Hora Final (HH:MM:SS):</IonLabel>
-            <IonDatetime
+            />*/}
+            <p>colocar seleccionador de hora</p>
+            <p>Seleccione la Hora Final (HH:MM:SS):</p>
+            {/*<IonDatetime
               displayFormat="HH:mm:ss"
               value={fin}
               onIonChange={e => setFin(e.target.value)}
-            />
-            <IonButton type="submit" expand="block" className="submit">
+            />}*/}
+            <p>colocar seleccionador de hora</p>
+            <button type="submit" className="submit">
               Aceptar
-            </IonButton>
-            <IonAlert
+            </button>
+            {/*<IonAlert
               isOpen={alert}
               onDidDismiss={() => setShowAlert(false)}
               header={"Advertencia"}
               subHeader={"Fallo en el guardado"}
               message={"no se pudo guardar la hora en este calendario"}
               buttons={["OK"]}
-            />
+            />*/}
           </form>
         </div>
-      </IonContent>
+      </div>
       <Footer />
-    </IonPage>
+    </div>
   );
 };
 

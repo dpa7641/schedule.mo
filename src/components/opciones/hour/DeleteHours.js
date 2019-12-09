@@ -1,21 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {
-  IonHeader,
-  IonToolbar,
-  IonPage,
-  IonTitle,
-  IonContent,
-  IonLabel,
-  IonButton,
-  IonButtons,
-  IonIcon,
-  IonList,
-  IonItem,
-  IonAlert
-} from "@ionic/react";
 import { useSelector } from "react-redux";
 import get from "lodash/fp/get";
-import { arrowRoundBack, trash } from "ionicons/icons";
+//import { arrowRoundBack, trash } from "ionicons/icons";
 import Footer from "../../Footer";
 
 const DeleteHours = ({ history }) => {
@@ -52,41 +38,33 @@ const DeleteHours = ({ history }) => {
   };
 
   const hourList = horas.map((hora, index) => (
-    <IonItem key={`itm-${index}`}>
-      <IonButton
-        color="danger"
-        slot="start"
-        size="default"
-        onClick={() => eliminarHora(hora.id)}
-      >
-        <IonIcon icon={trash}></IonIcon>
-      </IonButton>
+    <div key={`itm-${index}`}>
+      <button to onClick={() => eliminarHora(hora.id)}>
+        {/*<IonIcon icon={trash}></IonIcon>*/}
+        <p>eliminar</p>
+      </button>
       <h3>
         {hora.ini} - {hora.fin}
       </h3>
-    </IonItem>
+    </div>
   ));
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonButton onClick={() => history.goBack()} slot="end">
+    <div>
+      <div>
+        <div>
+          {/*<IonButtons slot="start">
+            <button onClick={() => history.goBack()} slot="end">
               <IonIcon icon={arrowRoundBack}></IonIcon>
               <IonLabel>Atras</IonLabel>
-            </IonButton>
-          </IonButtons>
-          <IonTitle>Eliminar Hora</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent
-        scrollEvents={true}
-        onIonScrollStart={() => {}}
-        onIonScroll={() => {}}
-        onIonScrollEnd={() => {}}
-      >
-        <IonList>{hourList}</IonList>
-        <IonAlert
+            </button>
+          </IonButtons>*/}
+          <p>poner boton de retroceso</p>
+          <p>Eliminar Hora</p>
+        </div>
+      </div>
+      <div>
+        <div>{hourList}</div>
+        {/*<IonAlert
           isOpen={alert}
           onDidDismiss={() => setShowAlert(false)}
           header={"Advertencia"}
@@ -101,10 +79,10 @@ const DeleteHours = ({ history }) => {
           subHeader={"correcta"}
           message={"Se elimino la hora especificada"}
           buttons={["OK"]}
-        />
-      </IonContent>
+        />*/}
+      </div>
       <Footer />
-    </IonPage>
+    </div>
   );
 };
 

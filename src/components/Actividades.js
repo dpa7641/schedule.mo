@@ -1,36 +1,24 @@
 import React from "react";
-import {
-  IonHeader,
-  IonToolbar,
-  IonPage,
-  IonTitle,
-  IonContent,
-  IonList,
-  IonItem,
-  IonLabel
-} from "@ionic/react";
-
+import { Link } from "react-router-dom";
 import Footer from "./Footer";
 
 const Actividades = () => {
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>lista de actividades</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
-        <IonList>
-          <IonItem routerLink="/eventos">
-            <IonLabel>
-              <h2>detalles</h2>
-            </IonLabel>
-          </IonItem>
-        </IonList>
-      </IonContent>
+    <div>
+      <div>
+        <div>
+          <p>lista de actividades</p>
+        </div>
+      </div>
+      <div>
+        <div>
+          <Link to="/eventos">
+            <h2>detalles</h2>
+          </Link>
+        </div>
+      </div>
       <Footer />
-    </IonPage>
+    </div>
   );
 };
 
