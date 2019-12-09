@@ -1,13 +1,3 @@
-import {
-  IonHeader,
-  IonContent,
-  IonToolbar,
-  IonTitle,
-  IonPage,
-  IonButton,
-  IonAlert
-} from "@ionic/react";
-
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { userLogin, latestCalendar } from "../reducer/actionCreators";
@@ -17,7 +7,7 @@ const CreateUser = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [alert, setShowAlert] = useState(false);
+  //const [alert, setShowAlert] = useState(false);
   const dispatch = useDispatch();
 
   const handleSubmit = async () => {
@@ -45,17 +35,17 @@ const CreateUser = ({ history }) => {
       dispatch(latestCalendar(0));
       history.push(`/horarios`);
     } else {
-      setShowAlert(true);
+      //setShowAlert(true);
     }
   };
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Crear Usuario</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
+    <div>
+      <div>
+        <div>
+          <p>Crear Usuario</p>
+        </div>
+      </div>
+      <div>
         <div className="cuerpo">
           <div className="titulos">
             <h5>Pagina de creación de usuario</h5>
@@ -91,30 +81,30 @@ const CreateUser = ({ history }) => {
               name="password"
               required
             ></input>
-            <IonButton type="submit" expand="block" className="submit">
+            <button type="submit" expand="block" className="submit">
               Crear Cuenta
-            </IonButton>
-            <IonAlert
+            </button>
+            {/*<IonAlert
               isOpen={alert}
               onDidDismiss={() => setShowAlert(false)}
               header={"Advertencia"}
               subHeader={"Correo Existente"}
               message={"El correo ingresado ya esta ligado a una cuenta"}
               buttons={["OK"]}
-            />
+            />*/}
           </form>
           <div className="registro">
-            <IonButton
+            <button
               expand="block"
               color="secondary"
               onClick={() => history.push("/login")}
             >
               Cancelar
-            </IonButton>
+            </button>
           </div>
         </div>
-      </IonContent>
-    </IonPage>
+      </div>
+    </div>
   );
 };
 export default CreateUser;

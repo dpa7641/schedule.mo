@@ -1,19 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonToolbar,
-  IonButton,
-  IonIcon,
-  IonTitle,
-  IonList,
-  IonItem,
-  IonLabel
-} from "@ionic/react";
 import { useSelector, useDispatch } from "react-redux";
 import get from "lodash/fp/get";
-import { add } from "ionicons/icons";
+//import { add } from "ionicons/icons";
 import { latestCalendar } from "../../reducer/actionCreators";
 import "./Calendarios.css";
 import Footer from "../Footer";
@@ -48,39 +36,30 @@ const Calendarios = props => {
       className="btn"
       onClick={() => redirigir(calendar.id)}
     >
-      <IonItem>
-        <IonLabel>
+      <div>
+        <div>
           <h2>{calendar.name}</h2>
           <p>{calendar.description}</p>
-        </IonLabel>
-      </IonItem>
+        </div>
+      </div>
     </button>
   ));
 
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Lista de Horarios</IonTitle>
-          <IonButton
-            color="light"
-            slot="end"
-            onClick={() => history.push(`/crear-horario/${user_id}`)}
-          >
-            <IonIcon icon={add}></IonIcon>
-          </IonButton>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent
-        scrollEvents={true}
-        onIonScrollStart={() => {}}
-        onIonScroll={() => {}}
-        onIonScrollEnd={() => {}}
-      >
-        <IonList>{calendarList}</IonList>
-      </IonContent>
+    <div>
+      <div>
+        <div>
+          <p>Lista de Horarios</p>
+          <button onClick={() => history.push(`/crear-horario/${user_id}`)}>
+            {/*<IonIcon icon={add}></IonIcon>*/}
+          </button>
+        </div>
+      </div>
+      <div>
+        <div>{calendarList}</div>
+      </div>
       <Footer />
-    </IonPage>
+    </div>
   );
 };
 

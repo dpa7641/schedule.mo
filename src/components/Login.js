@@ -1,14 +1,3 @@
-import {
-  IonHeader,
-  IonContent,
-  IonToolbar,
-  IonTitle,
-  IonPage,
-  IonButton,
-  IonLabel,
-  IonAlert
-} from "@ionic/react";
-
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
@@ -18,7 +7,7 @@ import { userLogin, latestCalendar } from "../reducer/actionCreators";
 const Login = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [alert, setShowAlert] = useState(false);
+  //const [alert, setShowAlert] = useState(false);
   const dispatch = useDispatch();
 
   const handleSubmit = async () => {
@@ -40,17 +29,15 @@ const Login = ({ history }) => {
       dispatch(latestCalendar(0));
       history.push(`/horarios`);
     } else {
-      setShowAlert(true);
+      //setShowAlert(true);
     }
   };
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Login</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
+    <div className="page">
+      <header>
+        <h3>Login</h3>
+      </header>
+      <section>
         <div className="cuerpo">
           <div className="titulos">
             <h5>Bienvenido a Schedule.mo</h5>
@@ -76,33 +63,38 @@ const Login = ({ history }) => {
               className="password"
               name="password"
             />
-            <IonButton type="submit" expand="block" className="submit">
+            <button
+              type="submit"
+              expand="block"
+              className="submit btn btn-primary"
+            >
               Iniciar Sesión
-              <IonAlert
+              {/*<IonAlert
                 isOpen={alert}
                 onDidDismiss={() => setShowAlert(false)}
                 header={"Advertencia"}
                 subHeader={"Fallo al verificar datos"}
                 message={"Los datos ingresados no cuentan con una cuenta"}
                 buttons={["OK"]}
-              />
-            </IonButton>
+              />*/}
+            </button>
           </form>
           <div className="registro">
-            <IonLabel className="labelCuenta">
+            <p className="labelCuenta">
               Usted ya tiene una cuenta en Schedule?
-            </IonLabel>
-            <IonButton
+            </p>
+            <button
               expand="block"
               color="secondary"
+              className="btn btn-success"
               onClick={() => history.push(`/crear-usuario`)}
             >
               Crear Cuenta
-            </IonButton>
+            </button>
           </div>
         </div>
-      </IonContent>
-    </IonPage>
+      </section>
+    </div>
   );
 };
 

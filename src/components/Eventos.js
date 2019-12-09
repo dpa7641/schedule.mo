@@ -1,30 +1,20 @@
 import React from "react";
-import {
-  IonBackButton,
-  IonButtons,
-  IonHeader,
-  IonPage,
-  IonToolbar,
-  IonTitle,
-  IonContent
-} from "@ionic/react";
-
+import { Link } from "react-router-dom";
 const Eventos = () => {
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonBackButton defaultHref="/tab1" />
-          </IonButtons>
-          <IonTitle>Detail</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent>
+    <div>
+      <div>
+        <div>
+          <Link href="/tab1">btn retroceso</Link>
+
+          <p>Detail</p>
+        </div>
+      </div>
+      <div>
         <p>detalles de los eventos faltantes!!!! </p>
         <p>detalles de los eventos faltantes!!!! </p>
-      </IonContent>
-    </IonPage>
+      </div>
+    </div>
   );
 };
 

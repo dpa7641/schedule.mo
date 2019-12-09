@@ -1,42 +1,27 @@
 import React from "react";
 
-import { IonIcon, IonFooter, IonGrid, IonRow, IonCol } from "@ionic/react";
 import "./Footer.css";
-import {
-  home,
-  calendar as calendarIcon,
-  share,
-  clipboard
-} from "ionicons/icons";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <IonFooter className="footer">
-      <IonGrid>
-        <IonRow className="fila">
+    <div className="footer">
+      <div>
+        <div className="fila">
           <Link to="/horarios">
-            <IonCol className="columna">
-              <IonIcon icon={home} size="large" />
-            </IonCol>
+            <div className="columna">icono home</div>
           </Link>
           <Link to="/lista-horarios">
-            <IonCol className="columna">
-              <IonIcon icon={calendarIcon} size="large" />
-            </IonCol>
+            <div className="columna">icono horarios</div>
           </Link>
           <Link to="/actividades">
-            <IonCol className="columna">
-              <IonIcon icon={clipboard} size="large" />
-            </IonCol>
+            <div className="columna">icono actividades</div>
           </Link>
           <Link to="/share">
-            <IonCol className="columna">
-              <IonIcon icon={share} size="large" />
-            </IonCol>
+            <div className="columna">icono compartir</div>
           </Link>
-        </IonRow>
-      </IonGrid>
-    </IonFooter>
+        </div>
+      </div>
+    </div>
   );
 };
 export default Footer;

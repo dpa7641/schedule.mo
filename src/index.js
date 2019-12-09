@@ -1,5 +1,3 @@
-import "@ionic/core/css/core.css";
-import "@ionic/core/css/ionic.bundle.css";
 import React from "react";
 import ReactDOM from "react-dom";
 import { createStore, applyMiddleware } from "redux";
@@ -12,8 +10,6 @@ import App from "./App";
 import * as serviceWorker from "./registerServiceWorker";
 
 const store = createStore(appReducer, applyMiddleware(logger, thunk));
-
-console.log("store", store.getState());
 ReactDOM.render(
   <Provider store={store}>
     <App />
