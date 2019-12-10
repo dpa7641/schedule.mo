@@ -33,7 +33,7 @@ const Calendarios = props => {
   const calendarList = calendarios.map((calendar, index) => (
     <button
       key={`btn-${index}`}
-      className="btn"
+      className="btn btn-success"
       onClick={() => redirigir(calendar.id)}
     >
       <div>

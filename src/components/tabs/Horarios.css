@@ -2,3 +2,19 @@
   max-height: 35vh;
   overflow: hidden;
 }
+.page header h5 {
+  padding: 5px;
+  margin: 10px;
+}
+header {
+  border-bottom: 1px solid rgb(194, 191, 191);
+}
+.page .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cierre span {
+  color: white;
+}
