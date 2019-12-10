@@ -2,7 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import get from "lodash/fp/get";
 import { Link } from "react-router-dom";
-import Footer from "../Footer";
 import "./Settings.css";
 
 const Settings = ({ history }) => {
@@ -38,7 +37,6 @@ const Settings = ({ history }) => {
           <h4>Eliminar Este Horario</h4>
         </button>
       </section>
-      <Footer />
     </div>
   );
 };

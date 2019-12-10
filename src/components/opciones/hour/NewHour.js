@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 import { useSelector } from "react-redux";
 import get from "lodash/fp/get";
-//import { arrowRoundBack } from "ionicons/icons";
-import Footer from "../../Footer";
 
 const NewHour = ({ history }) => {
   const calendar_id = useSelector(get("session.calendar_id"));
@@ -83,7 +81,6 @@ const NewHour = ({ history }) => {
           </form>
         </div>
       </section>
-      <Footer />
     </div>
   );
 };
