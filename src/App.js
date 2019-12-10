@@ -17,12 +17,14 @@ import DeleteHours from "./components/opciones/hour/DeleteHours";
 import "./App.css";
 import NewActivity from "./components/opciones/activity/NewActivity";
 import Footer from "./components/Footer";
+import NavBar from "./components/navbar/NavBar";
 
 const App = () => {
   const user_id = useSelector(get("session.user_id"));
   return (
     <BrowserRouter>
       <Fragment>
+        {user_id && <NavBar />}
         <div className="container-fluid main-content">
           <Route exact path="/" component={Login} />
           <Route path="/horarios" component={Horario} exact={true} />
