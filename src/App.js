@@ -25,22 +25,28 @@ const App = () => {
     <BrowserRouter>
       <Fragment>
         {user_id && <NavBar />}
-        <div className="container-fluid main-content">
-          <Route exact path="/" component={Login} />
-          <Route path="/horarios" component={Horario} exact={true} />
-          <Route path="/lista-horarios" component={Calendarios} exact={true} />
-          <Route path="/eventos" component={Eventos} />
-          <Route path="/actividades" component={Actividades} />
-          <Route path="/share" component={Share} />
-          <Route path="/crear-usuario" component={CreateUser} />
-          <Route path="/crear-horario" component={CreateSchedule} />
-          <Route path="/login" component={Login} />
-          <Route path="/settings" component={Settings} />
-          <Route path="/hour-settings" component={HourSettings} />
-          <Route path="/new-hour" component={NewHour} />
-          <Route path="/delete-hours" component={DeleteHours} />
-          <Route path="/new-activity" component={NewActivity} exact={true} />
-        </div>
+        <section>
+          <div className="container-fluid main-content">
+            <Route exact path="/" component={Login} />
+            <Route path="/horarios" component={Horario} exact={true} />
+            <Route
+              path="/lista-horarios"
+              component={Calendarios}
+              exact={true}
+            />
+            <Route path="/eventos" component={Eventos} />
+            <Route path="/actividades" component={Actividades} />
+            <Route path="/share" component={Share} />
+            <Route path="/crear-usuario" component={CreateUser} />
+            <Route path="/crear-horario" component={CreateSchedule} />
+            <Route path="/login" component={Login} />
+            <Route path="/settings" component={Settings} />
+            <Route path="/hour-settings" component={HourSettings} />
+            <Route path="/new-hour" component={NewHour} />
+            <Route path="/delete-hours" component={DeleteHours} />
+            <Route path="/new-activity" component={NewActivity} exact={true} />
+          </div>
+        </section>
         {user_id && <Footer className="footer" />}
       </Fragment>
     </BrowserRouter>

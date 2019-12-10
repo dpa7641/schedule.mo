@@ -9,14 +9,12 @@ const Horario = ({ history }) => {
 
   return (
     <div className="page">
-      <section>
-        <div className="welcome-card">
-          <div>
-            <h2>creacion de horario</h2>
-          </div>
+      <div className="welcome-card">
+        <div>
+          <h2>creacion de horario</h2>
         </div>
-        <p>aqui colocar los horarios</p>
-      </section>
+      </div>
+      <p>aqui colocar los horarios</p>
     </div>
   );
 };
