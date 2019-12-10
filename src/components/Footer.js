@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container">
         <div className="row">
           <Link to="/horarios">
-            <div class="jaula col">
+            <div className="jaula col">
               <img
                 src={require("../icons/home.png")}
                 className="imagen"
@@ -17,7 +17,7 @@ const Footer = () => {
             </div>
           </Link>
           <Link to="/lista-horarios">
-            <div class="jaula col">
+            <div className="jaula col">
               <img
                 src={require("../icons/calendar.png")}
                 className="imagen"
@@ -26,7 +26,7 @@ const Footer = () => {
             </div>
           </Link>
           <Link to="/actividades">
-            <div class="jaula col">
+            <div className="jaula col">
               <img
                 src={require("../icons/events.png")}
                 className="imagen"
@@ -35,7 +35,7 @@ const Footer = () => {
             </div>
           </Link>
           <Link to="/share">
-            <div class="jaula col">
+            <div className="jaula col">
               <img
                 src={require("../icons/compartir.png")}
                 className="imagen"

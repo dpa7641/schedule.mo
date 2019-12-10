@@ -15,6 +15,7 @@ import NewHour from "./components/opciones/hour/NewHour";
 import HourSettings from "./components/opciones/hour/HourSettings";
 import DeleteHours from "./components/opciones/hour/DeleteHours";
 import "./App.css";
+import NewActivity from "./components/opciones/activity/NewActivity";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
           <Route path="/hour-settings" component={HourSettings} />
           <Route path="/new-hour" component={NewHour} />
           <Route path="/delete-hours" component={DeleteHours} />
+          <Route path="/new-activity" component={NewActivity} exact={true} />
         </div>
         {user_id && <Footer className="footer" />}
       </Fragment>
