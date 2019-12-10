@@ -1,6 +1,5 @@
 import React from "react";
 //import { expand, contract } from "ionicons/icons";
-import Footer from "./Footer";
 import "./Share.css";
 
 const Share = ({ history }) => {
@@ -23,7 +22,6 @@ const Share = ({ history }) => {
           </button>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

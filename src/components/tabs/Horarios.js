@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import get from "lodash/fp/get";
 import "./Horarios.css";
-import Footer from "../Footer";
 import { userLogin, latestCalendar } from "../../reducer/actionCreators";
 import { Link } from "react-router-dom";
 const Horario = ({ history }) => {
@@ -27,7 +26,7 @@ const Horario = ({ history }) => {
           Schedule.mo
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNavAltMarkup"
@@ -76,14 +75,11 @@ const Horario = ({ history }) => {
       <section>
         <div className="welcome-card">
           <div>
-            <h3>{`Comienzo ${user_id} + ${calendar_id}`}</h3>
             <h2>creacion de horario</h2>
           </div>
         </div>
         <p>aqui colocar los horarios</p>
       </section>
-
-      <Footer />
     </div>
   );
 };

@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 import get from "lodash/fp/get";
 //import { arrowRoundBack } from "ionicons/icons";
 import { Link } from "react-router-dom";
-import Footer from "../../Footer";
 
 const HourSettings = ({ history }) => {
   const calendar_id = useSelector(get("session.calendar_id"));
@@ -30,7 +29,6 @@ const HourSettings = ({ history }) => {
           </Link>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
