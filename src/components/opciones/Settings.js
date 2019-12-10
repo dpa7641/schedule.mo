@@ -1,9 +1,9 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import get from "lodash/fp/get";
-//import { arrowRoundBack } from "ionicons/icons";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
+import "./Settings.css";
 
 const Settings = ({ history }) => {
   const calendar_id = useSelector(get("session.calendar_id"));
@@ -14,42 +14,30 @@ const Settings = ({ history }) => {
 
   return (
     <div>
-      <div>
-        <div>
-          {/*<IonButtons slot="start">
-            <button onClick={() => history.goBack()}>
-              <IonIcon icon={arrowRoundBack}></IonIcon>
-              <p>Atras</p>
-            </button>
-          </IonButtons>*/}
-          {/*colocar boton de retroceso*/}
-          <p>{`Opciones  + ${calendar_id}`}</p>
-        </div>
-      </div>
-      <div>
-        <div>
-          <Link to="/settings">
-            <p>
-              <h2>Editar Horario</h2>
-            </p>
-          </Link>
-          <Link to="/hour-settings">
-            <p>
-              <h2>Horas</h2>
-            </p>
-          </Link>
-          <Link to="/settings">
-            <p>
-              <h2>Actividades</h2>
-            </p>
-          </Link>
-          <button onClick={() => eliminar()}>
-            <p>
-              <h2>Eliminar Este Horario</h2>
-            </p>
-          </button>
-        </div>
-      </div>
+      <nav class="navbar navbar-light bg-light">
+        <button className="back" onClick={() => history.goBack()}>
+          <img
+            src={require("../../icons/back.png")}
+            className="imagen"
+            alt="back"
+          />
+        </button>
+        <a class="navbar-brand">Creación de Horario</a>
+      </nav>
+      <section>
+        <Link className="btn" to="/settings">
+          <h4>Editar Horario</h4>
+        </Link>
+        <Link className="btn" to="/hour-settings">
+          <h4>Horas</h4>
+        </Link>
+        <Link className="btn" to="/settings">
+          <h4>Actividades</h4>
+        </Link>
+        <button className="btn btn-danger" onClick={() => eliminar()}>
+          <h4>Eliminar Este Horario</h4>
+        </button>
+      </section>
       <Footer />
     </div>
   );

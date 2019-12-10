@@ -9,26 +9,24 @@ const HourSettings = ({ history }) => {
   const calendar_id = useSelector(get("session.calendar_id"));
 
   return (
-    <div>
-      <div>
-        {/*<IonToolbar>
-          <IonButtons slot="start">
-            <IonButton onClick={() => history.goBack()}>
-              <IonIcon icon={arrowRoundBack}></IonIcon>
-              <p>Atras</p>
-            </IonButton>
-          </IonButtons>
-          <IonTitle>{`OpcionesHora  + ${calendar_id}`}</IonTitle>
-        </IonToolbar>*/}
-        <p>colocar boton de retroceso y titulo</p>
-      </div>
+    <div className="page">
+      <nav class="navbar navbar-light bg-light">
+        <button className="back" onClick={() => history.goBack()}>
+          <img
+            src={require("../../../icons/back.png")}
+            className="imagen"
+            alt="back"
+          />
+        </button>
+        <a class="navbar-brand">Opciones Hora</a>
+      </nav>
       <div>
         <div>
-          <Link to="/new-hour">
-            <h2>Nueva Hora</h2>
+          <Link className="btn" to="/new-hour">
+            <h4>Nueva Hora</h4>
           </Link>
-          <Link to="/delete-hours">
-            <h2>Eliminar Horas</h2>
+          <Link className="btn btn-outline-danger" to="/delete-hours">
+            <h4>Eliminar Horas</h4>
           </Link>
         </div>
       </div>

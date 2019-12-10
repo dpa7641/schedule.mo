@@ -73,7 +73,7 @@ const Horario = ({ history }) => {
           </div>
         </div>
       </nav>
-      <div>
+      <section>
         <div className="welcome-card">
           <div>
             <h3>{`Comienzo ${user_id} + ${calendar_id}`}</h3>
@@ -81,7 +81,8 @@ const Horario = ({ history }) => {
           </div>
         </div>
         <p>aqui colocar los horarios</p>
-      </div>
+      </section>
+
       <Footer />
     </div>
   );
