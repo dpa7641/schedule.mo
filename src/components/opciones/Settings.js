@@ -31,7 +31,7 @@ const Settings = ({ history }) => {
         <Link className="btn" to="/hour-settings">
           <h4>Horas</h4>
         </Link>
-        <Link className="btn" to="/settings">
+        <Link className="btn" to="/new-activity">
           <h4>Actividades</h4>
         </Link>
         <button className="btn btn-danger" onClick={() => eliminar()}>
