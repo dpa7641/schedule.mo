@@ -1,14 +1,10 @@
 .footer {
   background-color: #f5f6f9;
 }
-.icono {
+.jaula {
   padding: 25px;
 }
-
-.fila {
-}
-.columna {
-  border: 1px solid rgba(88, 85, 85, 0.637);
-  padding: 28px 30px 10px 25px;
-  margin-left: 2px;
+.footer {
+  display: flex;
+  bottom: 0;
 }

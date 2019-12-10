@@ -7,7 +7,7 @@ const CreateUser = ({ history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  //const [alert, setShowAlert] = useState(false);
+  const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
 
   const handleSubmit = async () => {
@@ -35,17 +35,15 @@ const CreateUser = ({ history }) => {
       dispatch(latestCalendar(0));
       history.push(`/horarios`);
     } else {
-      //setShowAlert(true);
+      setVisible(true);
     }
   };
   return (
-    <div>
-      <div>
-        <div>
-          <p>Crear Usuario</p>
-        </div>
-      </div>
-      <div>
+    <div className="page">
+      <header>
+        <h5>Schedule.mo</h5>
+      </header>
+      <section>
         <div className="cuerpo">
           <div className="titulos">
             <h5>Pagina de creación de usuario</h5>
@@ -81,29 +79,25 @@ const CreateUser = ({ history }) => {
               name="password"
               required
             ></input>
-            <button type="submit" expand="block" className="submit">
+            <button type="submit" className="submit btn btn-success">
               Crear Cuenta
             </button>
-            {/*<IonAlert
-              isOpen={alert}
-              onDidDismiss={() => setShowAlert(false)}
-              header={"Advertencia"}
-              subHeader={"Correo Existente"}
-              message={"El correo ingresado ya esta ligado a una cuenta"}
-              buttons={["OK"]}
-            />*/}
+            {visible && (
+              <div class="alert alert-danger" role="alert">
+                El correo ingresado ya tiene una cuenta
+              </div>
+            )}
           </form>
           <div className="registro">
             <button
-              expand="block"
-              color="secondary"
+              className="btn btn-primary"
               onClick={() => history.push("/login")}
             >
               Cancelar
             </button>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
