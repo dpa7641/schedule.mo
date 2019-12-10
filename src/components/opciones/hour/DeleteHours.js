@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import get from "lodash/fp/get";
 //import { arrowRoundBack, trash } from "ionicons/icons";
-import Footer from "../../Footer";
 
 const DeleteHours = ({ history }) => {
   const calendar_id = useSelector(get("session.calendar_id"));
@@ -52,12 +51,11 @@ const DeleteHours = ({ history }) => {
     <div>
       <div>
         <div>
-          {/*<IonButtons slot="start">
-            <button onClick={() => history.goBack()} slot="end">
-              <IonIcon icon={arrowRoundBack}></IonIcon>
-              <IonLabel>Atras</IonLabel>
-            </button>
-          </IonButtons>*/}
+          {/* <IonButtons slot="start"> */}
+          <button onClick={() => history.goBack()} slot="end">
+            Atras
+          </button>
+          {/* </IonButtons> */}
           <p>poner boton de retroceso</p>
           <p>Eliminar Hora</p>
         </div>
@@ -81,7 +79,6 @@ const DeleteHours = ({ history }) => {
           buttons={["OK"]}
         />*/}
       </div>
-      <Footer />
     </div>
   );
 };

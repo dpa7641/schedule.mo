@@ -44,6 +44,7 @@ const Login = ({ history }) => {
             <h2>Iniciar Sesión</h2>
           </div>
           <form
+            className="container"
             onSubmit={e => {
               e.preventDefault();
               handleSubmit();
@@ -69,29 +70,16 @@ const Login = ({ history }) => {
               className="submit btn btn-primary"
             >
               Iniciar Sesión
-              {/*<IonAlert
-                isOpen={alert}
-                onDidDismiss={() => setShowAlert(false)}
-                header={"Advertencia"}
-                subHeader={"Fallo al verificar datos"}
-                message={"Los datos ingresados no cuentan con una cuenta"}
-                buttons={["OK"]}
-              />*/}
             </button>
-          </form>
-          <div className="registro">
-            <p className="labelCuenta">
-              Usted ya tiene una cuenta en Schedule?
-            </p>
             <button
               expand="block"
               color="secondary"
-              className="btn btn-success"
+              className="btn btn-outline-primary"
               onClick={() => history.push(`/crear-usuario`)}
             >
               Crear Cuenta
             </button>
-          </div>
+          </form>
         </div>
       </section>
     </div>

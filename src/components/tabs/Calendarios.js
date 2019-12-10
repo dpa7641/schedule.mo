@@ -4,7 +4,6 @@ import get from "lodash/fp/get";
 //import { add } from "ionicons/icons";
 import { latestCalendar } from "../../reducer/actionCreators";
 import "./Calendarios.css";
-import Footer from "../Footer";
 
 const Calendarios = props => {
   const [calendarios, setCalendarios] = useState([]);
@@ -33,7 +32,7 @@ const Calendarios = props => {
   const calendarList = calendarios.map((calendar, index) => (
     <button
       key={`btn-${index}`}
-      className="btn btn-success"
+      className="btn btn-block btn-primary"
       onClick={() => redirigir(calendar.id)}
     >
       <div>
@@ -48,17 +47,19 @@ const Calendarios = props => {
   return (
     <div>
       <div>
-        <div>
-          <p>Lista de Horarios</p>
-          <button onClick={() => history.push(`/crear-horario/${user_id}`)}>
-            {/*<IonIcon icon={add}></IonIcon>*/}
+        <div className="container header">
+          <h2>Lista de Horarios</h2>
+          <button
+            onClick={() => history.push(`/crear-horario/${user_id}`)}
+            className="btn btn-primary btn-sm"
+          >
+            +
           </button>
         </div>
       </div>
       <div>
         <div>{calendarList}</div>
       </div>
-      <Footer />
     </div>
   );
 };
