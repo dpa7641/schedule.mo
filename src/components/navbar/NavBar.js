@@ -34,7 +34,7 @@ const NavBar = () => {
       <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div className="navbar-nav">
           <Link
-            className="nav-item nav-link active btn btn-sm"
+            className="nav-item nav-link active btn btn-sm btn-block"
             to="crear-horario"
           >
             <img
@@ -42,7 +42,7 @@ const NavBar = () => {
               className="imagen"
               alt="anadir"
             />
-            <span>Crear nuevo Horario</span>
+            <label>Crear nuevo Horario</label>
           </Link>
           <Link className="nav-item nav-link btn btn-sm" to="/settings">
             <img
@@ -50,7 +50,7 @@ const NavBar = () => {
               className="imagen"
               alt="settings"
             />
-            <span>Opciones</span>
+            <label>Opciones</label>
           </Link>
           <Link
             className=" cierre nav-item nav-link btn btn-danger btn-sm"
@@ -62,7 +62,7 @@ const NavBar = () => {
               className="imagen"
               alt="logout"
             />
-            <span>Cerrar Sesión</span>
+            <label>Cerrar Sesión</label>
           </Link>
         </div>
       </div>

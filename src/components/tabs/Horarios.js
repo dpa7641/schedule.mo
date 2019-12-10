@@ -14,7 +14,9 @@ const Horario = ({ history }) => {
           <h2>creacion de horario</h2>
         </div>
       </div>
-      <p>aqui colocar los horarios</p>
+      <div>
+        <p>aqui colocar los horarios</p>
+      </div>
     </div>
   );
 };
