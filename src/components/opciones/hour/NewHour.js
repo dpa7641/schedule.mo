@@ -9,7 +9,7 @@ const NewHour = ({ history }) => {
   const calendar_id = useSelector(get("session.calendar_id"));
   const [ini, setIni] = useState("00:00:00");
   const [fin, setFin] = useState("00:00:00");
-  const [alert, setShowAlert] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   const handleSubmit = async () => {
     const url = "https://afternoon-refuge-46845.herokuapp.com/api/hours";
@@ -29,23 +29,23 @@ const NewHour = ({ history }) => {
     if (data.schedule_id === calendar_id) {
       history.push(`/hour-settings`);
     } else {
-      setShowAlert(true);
+      setVisible(true);
     }
   };
 
   return (
-    <div>
-      <div>
-        {/*<IonToolbar>
-          <IonButtons slot="start">
-            <button onClick={() => history.goBack()}>
-              <IonIcon icon={arrowRoundBack}></IonIcon>
-              <p>Atras</p>
-            </button>
-          </IonButtons>
-          <IonTitle>OpcionesHora</IonTitle>
-        </IonToolbar>*/}
-      </div>
+    <div className="page">
+      <nav class="navbar navbar-light bg-light">
+        <button className="back" onClick={() => history.goBack()}>
+          <img
+            src={require("../../../icons/back.png")}
+            className="imagen"
+            alt="back"
+          />
+        </button>
+        <a class="navbar-brand">Nueva Hora</a>
+      </nav>
+
       <div>
         <div className="cuerpo">
           <form
@@ -55,30 +55,17 @@ const NewHour = ({ history }) => {
             }}
           >
             <p>Seleccione la Hora Inicial (HH:MM:SS):</p>
-            {/*<IonDatetime
-              displayFormat="HH:mm:ss"
-              value={ini}
-              onIonChange={e => setIni(e.target.value)}
-            />*/}
-            <p>colocar seleccionador de hora</p>
+            <input type="time" min="00:00" max="23:59" />
             <p>Seleccione la Hora Final (HH:MM:SS):</p>
-            {/*<IonDatetime
-              displayFormat="HH:mm:ss"
-              value={fin}
-              onIonChange={e => setFin(e.target.value)}
-            />}*/}
-            <p>colocar seleccionador de hora</p>
+            <input type="time" min="00:00" max="23:59" />
             <button type="submit" className="submit">
               Aceptar
             </button>
-            {/*<IonAlert
-              isOpen={alert}
-              onDidDismiss={() => setShowAlert(false)}
-              header={"Advertencia"}
-              subHeader={"Fallo en el guardado"}
-              message={"no se pudo guardar la hora en este calendario"}
-              buttons={["OK"]}
-            />*/}
+            {visible && (
+              <div class="alert alert-danger" role="alert">
+                No se pudo crear la Hora
+              </div>
+            )}
           </form>
         </div>
       </div>

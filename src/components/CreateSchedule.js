@@ -4,12 +4,11 @@ import { useDispatch } from "react-redux";
 import { latestCalendar } from "../reducer/actionCreators";
 import get from "lodash/fp/get";
 import "./CreateSchedule.css";
-//import { arrowRoundBack } from "ionicons/icons";
 
 const CreateSchedule = ({ history }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  //const [alert, setShowAlert] = useState(false);
+  const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
   const user_id = useSelector(get("session.user_id"));
 
@@ -32,25 +31,23 @@ const CreateSchedule = ({ history }) => {
       dispatch(latestCalendar(data.id));
       history.push(`/horarios`);
     } else {
-      //setShowAlert(true);
+      setVisible(true);
     }
   };
 
   return (
-    <div>
-      <div>
-        <div>
-          {/*<IonButtons slot="start">
-            <button onClick={() => history.goBack()}>
-              <IonIcon icon={arrowRoundBack}></IonIcon>
-              <p>Atras</p>
-            </button>
-  </IonButtons>*/}
-          {/*anadir botones para regreso*/}
-          <p>Creación de Horario</p>
-        </div>
-      </div>
-      <div>
+    <div className="page">
+      <nav class="navbar navbar-light bg-light">
+        <button className="back" onClick={() => history.goBack()}>
+          <img
+            src={require("../icons/back.png")}
+            className="imagen"
+            alt="back"
+          />
+        </button>
+        <a class="navbar-brand">Creación de Horario</a>
+      </nav>
+      <section>
         <div className="contenido">
           <form
             onSubmit={e => {
@@ -60,7 +57,10 @@ const CreateSchedule = ({ history }) => {
           >
             <p>Inserte Nombre del nuevo Calendario:</p>
             <input
-              onChange={e => setName(e.target.value)}
+              onChange={e => {
+                setName(e.target.value);
+                setVisible(false);
+              }}
               type="text"
               placeholder="Nombre Calendario..."
               className="inputName"
@@ -69,27 +69,27 @@ const CreateSchedule = ({ history }) => {
             />
             <p>Descripcion (Opcional):</p>
             <textarea
-              onChange={e => setDescription(e.target.value)}
+              onChange={e => {
+                setDescription(e.target.value);
+                setVisible(false);
+              }}
               placeholder="Descripción..."
               className="inputDescription"
               name="description"
               cols={40}
               rows={10}
             />
-            <button type="submit" className="submit">
+            <button type="submit" className="submit btn btn-success">
               Aceptar
             </button>
-            {/*<IonAlert
-              isOpen={alert}
-              onDidDismiss={() => setShowAlert(false)}
-              header={"Advertencia"}
-              subHeader={"Fallo en el guardado"}
-              message={"caracteres en la descripcion exedidos"}
-              buttons={["OK"]}
-            />*/}
+            {visible && (
+              <div class="alert alert-danger" role="alert">
+                No se pudo crear el Horario
+              </div>
+            )}
           </form>
         </div>
-      </div>
+      </section>
     </div>
   );
 };
