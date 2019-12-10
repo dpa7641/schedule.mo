@@ -18,7 +18,8 @@ header {
 .cierre span {
   color: white;
 }
+
 section {
-  height: 40em;
-  overflow: scroll;
+  height: 80vh;
+  overflow: auto;
 }

@@ -34,3 +34,11 @@
 .main-content {
   height: 90%;
 }
+
+.imagen {
+  padding-right: 15px;
+}
+
+.nav-link {
+  display: flex;
+}

@@ -34,7 +34,6 @@ const DeleteHours = ({ history }) => {
 
   const hourList = horas.map((hora, index) => (
     <li key={`itm-${index}`} className="list-group-item">
-      <li key={`itm-${index}`} className="list-group-item">
       <div className="container">
         <div className="row">
           <div className="col-3">
@@ -58,6 +57,7 @@ const DeleteHours = ({ history }) => {
       </div>
     </li>
   ));
+
   return (
     <div>
       <nav class="navbar navbar-light bg-light">
