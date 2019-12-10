@@ -37,7 +37,7 @@ const CreateSchedule = ({ history }) => {
 
   return (
     <div className="page">
-      <nav class="navbar navbar-light bg-light">
+      <nav className="navbar navbar-light bg-light">
         <button className="back" onClick={() => history.goBack()}>
           <img
             src={require("../icons/back.png")}
@@ -45,7 +45,7 @@ const CreateSchedule = ({ history }) => {
             alt="back"
           />
         </button>
-        <a class="navbar-brand">Creación de Horario</a>
+        <a className="navbar-brand">Creación de Horario</a>
       </nav>
       <section>
         <div className="contenido">

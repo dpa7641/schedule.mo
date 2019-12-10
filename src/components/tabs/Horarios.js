@@ -27,7 +27,7 @@ const Horario = ({ history }) => {
           Schedule.mo
         </Link>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarNavAltMarkup"

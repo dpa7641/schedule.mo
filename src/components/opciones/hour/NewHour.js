@@ -7,8 +7,8 @@ import Footer from "../../Footer";
 
 const NewHour = ({ history }) => {
   const calendar_id = useSelector(get("session.calendar_id"));
-  const [ini, setIni] = useState("00:00:00");
-  const [fin, setFin] = useState("00:00:00");
+  const [ini, setIni] = useState("00:00");
+  const [fin, setFin] = useState("00:00");
   const [visible, setVisible] = useState(false);
 
   const handleSubmit = async () => {
@@ -20,8 +20,8 @@ const NewHour = ({ history }) => {
         "Content-type": "application/json"
       },
       body: JSON.stringify({
-        ini: ini,
-        fin: fin,
+        ini: ini + ":00",
+        fin: fin + ":00",
         schedule_id: calendar_id
       })
     });
@@ -46,7 +46,7 @@ const NewHour = ({ history }) => {
         <a class="navbar-brand">Nueva Hora</a>
       </nav>
 
-      <div>
+      <section>
         <div className="cuerpo">
           <form
             onSubmit={e => {
@@ -54,11 +54,25 @@ const NewHour = ({ history }) => {
               handleSubmit();
             }}
           >
-            <p>Seleccione la Hora Inicial (HH:MM:SS):</p>
-            <input type="time" min="00:00" max="23:59" />
-            <p>Seleccione la Hora Final (HH:MM:SS):</p>
-            <input type="time" min="00:00" max="23:59" />
-            <button type="submit" className="submit">
+            <p>Seleccione la Hora Inicial (HH:MM):</p>
+            <input
+              type="time"
+              min="00:00"
+              max="23:59"
+              value={ini}
+              className="form-control form-control-sm"
+              onChange={e => setIni(e.target.value)}
+            />
+            <p>Seleccione la Hora Final (HH:MM):</p>
+            <input
+              type="time"
+              min="00:00"
+              max="23:59"
+              value={fin}
+              className="form-control form-control-sm"
+              onChange={e => setFin(e.target.value)}
+            />
+            <button type="submit" className="submit btn btn-success">
               Aceptar
             </button>
             {visible && (
@@ -68,7 +82,7 @@ const NewHour = ({ history }) => {
             )}
           </form>
         </div>
-      </div>
+      </section>
       <Footer />
     </div>
   );

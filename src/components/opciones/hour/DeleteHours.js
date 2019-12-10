@@ -7,8 +7,6 @@ import Footer from "../../Footer";
 const DeleteHours = ({ history }) => {
   const calendar_id = useSelector(get("session.calendar_id"));
   const [horas, setHoras] = useState([]);
-  const [alert, setShowAlert] = useState(false);
-  const [alert2, setShowAlert2] = useState(false);
 
   useEffect(() => {
     async function loadData() {
@@ -21,6 +19,7 @@ const DeleteHours = ({ history }) => {
   }, [horas, calendar_id]);
 
   const eliminarHora = async idHora => {
+    console.log(idHora);
     const url = `https://afternoon-refuge-46845.herokuapp.com/api/hours/${idHora}`;
     const result = await fetch(url, {
       method: "delete",
@@ -31,55 +30,50 @@ const DeleteHours = ({ history }) => {
     });
     const data = await result.json();
     if (data === true) {
-      setShowAlert2(true);
     } else {
-      setShowAlert(true);
     }
   };
 
   const hourList = horas.map((hora, index) => (
-    <div key={`itm-${index}`}>
-      <button to onClick={() => eliminarHora(hora.id)}>
-        {/*<IonIcon icon={trash}></IonIcon>*/}
-        <p>eliminar</p>
-      </button>
-      <h3>
-        {hora.ini} - {hora.fin}
-      </h3>
-    </div>
+    <li key={`itm-${index}`} className="list-group-item">
+      <div className="container">
+        <div className="row">
+          <div className="col-3">
+            <button
+              className="btn btn-danger"
+              onClick={() => eliminarHora(hora.id)}
+            >
+              <img
+                src={require("../../../icons/basurero.png")}
+                className="imagen"
+                alt="eliminar"
+              />
+            </button>
+          </div>
+          <div className="col-9">
+            <h5>
+              {hora.ini} - {hora.fin}
+            </h5>
+          </div>
+        </div>
+      </div>
+    </li>
   ));
   return (
     <div>
+      <nav class="navbar navbar-light bg-light">
+        <button className="back" onClick={() => history.goBack()}>
+          <img
+            src={require("../../../icons/back.png")}
+            className="imagen"
+            alt="back"
+          />
+        </button>
+        <a class="navbar-brand">Eliminar Horas</a>
+      </nav>
+
       <div>
-        <div>
-          {/*<IonButtons slot="start">
-            <button onClick={() => history.goBack()} slot="end">
-              <IonIcon icon={arrowRoundBack}></IonIcon>
-              <IonLabel>Atras</IonLabel>
-            </button>
-          </IonButtons>*/}
-          <p>poner boton de retroceso</p>
-          <p>Eliminar Hora</p>
-        </div>
-      </div>
-      <div>
-        <div>{hourList}</div>
-        {/*<IonAlert
-          isOpen={alert}
-          onDidDismiss={() => setShowAlert(false)}
-          header={"Advertencia"}
-          subHeader={"Fallo en la eliminación"}
-          message={"no se pudo eliminar la hora seleccionada"}
-          buttons={["OK"]}
-        />
-        <IonAlert
-          isOpen={alert2}
-          onDidDismiss={() => setShowAlert2(false)}
-          header={"Eliminacion"}
-          subHeader={"correcta"}
-          message={"Se elimino la hora especificada"}
-          buttons={["OK"]}
-        />*/}
+        <ul className="list-group">{hourList}</ul>
       </div>
       <Footer />
     </div>

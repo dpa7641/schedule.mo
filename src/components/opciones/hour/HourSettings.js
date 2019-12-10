@@ -10,7 +10,7 @@ const HourSettings = ({ history }) => {
 
   return (
     <div className="page">
-      <nav class="navbar navbar-light bg-light">
+      <nav className="navbar navbar-light bg-light">
         <button className="back" onClick={() => history.goBack()}>
           <img
             src={require("../../../icons/back.png")}
@@ -18,7 +18,7 @@ const HourSettings = ({ history }) => {
             alt="back"
           />
         </button>
-        <a class="navbar-brand">Opciones Hora</a>
+        <a className="navbar-brand">Opciones Hora</a>
       </nav>
       <div>
         <div>
